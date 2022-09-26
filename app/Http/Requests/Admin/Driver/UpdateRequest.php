@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Product   ;
+namespace App\Http\Requests\Admin\Driver;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,10 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'sometimes|string',
-            'category_id' => ['sometimes','integer','exists:categories,id']
+            "firstName" => 'sometimes|string',
+            "lastName" => 'sometimes|string',
+            "phone" => 'sometimes|string',
+            "password" => 'sometimes|string'
         ];
     }
 }

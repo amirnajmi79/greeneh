@@ -21,6 +21,8 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
         Route::apiResource('category', \App\Http\Controllers\Api\V1\Admin\CategoryController::class);
         Route::apiResource('product', \App\Http\Controllers\Api\V1\Admin\ProductController::class);
         Route::apiResource('area', \App\Http\Controllers\Api\V1\Admin\AreaController::class);
-    });
+        Route::apiResource('driver', \App\Http\Controllers\Api\V1\Admin\DriverController::class);
+ 
+   });
 
 });

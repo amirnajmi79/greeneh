@@ -4,7 +4,7 @@
 namespace App\Services\Admin;
 
 use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
 use App\Services\BaseService;
 
@@ -35,5 +35,15 @@ class CategoryService extends BaseService
     {
         return $this->successResponse($category, 'show');
     }
+
+    public function delete(Category $category)
+    {
+        $deleted = $category->delete();
+
+        if($deleted)
+            return $this->successResponse(null, 'delete success.');
+        return $this->errorREssponse(null, 'not deleted.');
+    }
+
 }
 

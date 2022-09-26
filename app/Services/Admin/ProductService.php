@@ -5,7 +5,7 @@ namespace App\Services\Admin;
 
 
 use App\Http\Requests\Admin\Product\StoreRequest;
-use App\Http\Requests\Product\UpdateRequest;
+use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Models\Product;
 use App\Services\BaseService;
 

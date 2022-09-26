@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Admin\Product   ;
+namespace App\Http\Requests\Admin\Driver;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\APIRequest;
 
-class UpdateRequest extends FormRequest
+class StoreRequest extends APIRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +25,11 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'sometimes|string',
-            'category_id' => ['sometimes','integer','exists:categories,id']
+            "firstName" => 'required|string',
+            "lastName" => 'required|string',
+            "phone" => 'required|string',
+            "password" => 'required|string'
+
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Http\Requests\Admin\Product\StoreRequest;
-use App\Http\Requests\Product\UpdateRequest;
+use App\Http\Requests\Admin\Product\UpdateRequest;
 use App\Models\Product;
 use App\Services\Admin\ProductService;
 use Illuminate\Http\Request;
@@ -38,7 +38,7 @@ class ProductController extends BaseController
         return $this->productService->updateProduct($product,$request);
     }
 
-    public function delete(Product $product)
+    public function destroy(Product $product)
     {
         return $this->productService->deleteProduct($product);
     }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\Admin\Category\UpdateRequest;
 use App\Models\Category;
 use App\Services\Admin\CategoryService;
 use Illuminate\Http\Request;
@@ -37,6 +37,11 @@ class CategoryController extends BaseController
     public function show(category $category)
     {
         return $this->categoryService->showcategory($category);
+    } 
+
+    public function destroy(category $category)
+    {
+        return $this->categoryService->delete($category);
     }
 
 }

@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\UpdateRequest;
-use App\Models\Category;
-use App\Services\Admin\CategoryService;
+use App\Http\Requests\Admin\Area\StoreRequest;
+use App\Http\Requests\Admin\Area\UpdateRequest;
+use App\Models\Area;
+use App\Services\Admin\AreaService;
 use Illuminate\Http\Request;
 
 class AreaController extends BaseController
 {
     public $areaService;
-    public function __construct(CategoryService $areaService)
+    public function __construct(AreaService $areaService)
     {
         $this->areaService = $areaService;
     }
@@ -24,9 +24,9 @@ class AreaController extends BaseController
         return $this->areaService->storeArea($request);
     }
 
-    public function update(UpdateRequest $request,Category $category)
+    public function update(UpdateRequest $request,Area $area)
     {
-        return $this->areaService->updateArea($request,$category);
+        return $this->areaService->updateArea($request,$area);
     }
 
     public function index()
@@ -34,9 +34,13 @@ class AreaController extends BaseController
         return $this->areaService->getAllArea();
     }
 
-    public function show(category $category)
+    public function show(Area $area)
     {
-        return $this->areaService->showArea($category);
+        return $this->areaService->showArea($area);
     }
 
+    public function destroy(Area $area)
+    {
+        return $this->areaService->delete($area);
+    }
 }

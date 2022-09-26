@@ -4,37 +4,47 @@
 namespace App\Services\Admin;
 
 
-use App\Http\Requests\Admin\Category\StoreRequest;
-use App\Http\Requests\UpdateRequest;
-use App\Models\Category;
+use App\Http\Requests\Admin\Area\StoreRequest;
+use App\Http\Requests\Admin\Area\UpdateRequest;
+use App\Models\Area;
 use App\Services\BaseService;
 
 class AreaService extends BaseService
 {
     public function storeArea(StoreRequest $request): \Illuminate\Http\JsonResponse
     {
-        $category = Category::create($request->all());
+        $area = Area::create($request->all());
 
-        return $this->successResponse($category, 'created success');
+        return $this->successResponse($area, 'created success');
     }
 
-    public function updateArea(UpdateRequest $request,Category $category): \Illuminate\Http\JsonResponse
+    public function updateArea(UpdateRequest $request,Area $area): \Illuminate\Http\JsonResponse
     {
-        $category = $category->update($request->all());
+        $area = $area->update($request->all());
 
-        return $this->successResponse($category, 'updated success');
+        return $this->successResponse($area, 'updated success');
     }
 
     public function getAllArea()
     {
-        $categories = Category::all();
+        $areas = Area::all();
 
-        return $this->successResponse($categories, 'index');
+        return $this->successResponse($areas, 'index');
     }
 
-    public function showArea(Category $category)
+    public function showArea(Area $area)
     {
-        return $this->successResponse($category, 'show');
+        return $this->successResponse($area , 'show');
+    }
+
+    public function delete(Area $area)
+    {
+        $deleted = $area->delete();
+
+        if ($deleted)
+            return $this->successResponse(message: 'deleted success');
+
+        return $this->errorResponse(error:'delete not successfully');
     }
 
 }
