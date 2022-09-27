@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('login', [\App\Http\Controllers\Api\V1\Auth\LoginController::class, 'login']);
+Route::post('register', [\App\Http\Controllers\Api\V1\Auth\RegisterController::class, 'register']);
 
 Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::prefix('admin')->middleware(['role:admin'])->group(function () {
@@ -22,7 +23,7 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
         Route::apiResource('product', \App\Http\Controllers\Api\V1\Admin\ProductController::class);
         Route::apiResource('area', \App\Http\Controllers\Api\V1\Admin\AreaController::class);
         Route::apiResource('driver', \App\Http\Controllers\Api\V1\Admin\DriverController::class);
- 
+
    });
 
 });

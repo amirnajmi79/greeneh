@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 
 use App\Http\Controllers\Api\V1\BaseController;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Services\Admin\LoginService;
+use App\Services\Auth\LoginService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;

@@ -1,8 +1,6 @@
 <?php
 
-
-namespace App\Services\Admin;
-
+namespace App\Services\Auth;
 
 use App\Services\BaseService;
 
