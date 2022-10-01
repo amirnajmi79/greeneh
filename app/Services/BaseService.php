@@ -6,6 +6,7 @@ namespace App\Services;
 
 class BaseService
 {
+
     /**
      * success response
      * @param null $message

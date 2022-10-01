@@ -25,5 +25,7 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
         Route::apiResource('driver', \App\Http\Controllers\Api\V1\Admin\DriverController::class);
 
    });
-
+    Route::prefix('shopkeeper')->group(function (){
+        Route::apiResource('order',\App\Http\Controllers\Api\V1\Shopkeeper\OrderController::class);
+    });
 });

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             DriverSeeder::class,
             ShopkeeperSeeder::class,
+            CategorySeeder::class,
+            ProductSeeder::class
         ]);
     }
 }
