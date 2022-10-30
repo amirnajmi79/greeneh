@@ -28,4 +28,8 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
     Route::prefix('shopkeeper')->group(function (){
         Route::apiResource('order',\App\Http\Controllers\Api\V1\Shopkeeper\OrderController::class);
     });
+
+    Route::prefix('driver')->group(function (){
+        Route::apiResource('order', \App\Http\Controllers\Api\V1\Driver\OrderController::class);
+    });
 });

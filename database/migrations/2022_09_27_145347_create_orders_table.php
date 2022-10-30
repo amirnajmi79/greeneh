@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->integer('total_price');
+            $table->unsignedBigInteger('driver_id');
             $table->timestamps();
         });
     }

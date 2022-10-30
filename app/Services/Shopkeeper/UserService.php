@@ -2,9 +2,16 @@
 
 namespace App\Services\Shopkeeper;
 
+use App\Http\Requests\Shopkeeper\User\UpdateRequest;
+use App\Models\User;
 use App\Services\BaseService;
 
 class UserService extends BaseService
 {
-    public function update
+    public function updateUser(User $user,UpdateRequest $request)
+    {
+        $user->update($request->all());
+
+        return $this->successResponse($user, 'updated success');
+    }
 }
