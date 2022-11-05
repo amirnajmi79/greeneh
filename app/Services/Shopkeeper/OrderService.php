@@ -6,6 +6,7 @@ use App\Http\Requests\Shopkeeper\Order\StoreRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Services\BaseService;
+use Illuminate\Support\Facades\Auth;
 
 class OrderService extends BaseService
 {
@@ -23,5 +24,14 @@ class OrderService extends BaseService
 
         return $this->successResponse($order->with('products')->first(),'store order');
 
+    }
+
+
+    public function index()
+    {
+        $orders = Order::where('user_id', Auth::id())
+                    ->get();
+
+        return $this->successResponse($orders,'index order');
     }
 }

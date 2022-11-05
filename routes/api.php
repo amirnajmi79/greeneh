@@ -32,5 +32,6 @@ Route::prefix('v1')->middleware(['auth:sanctum'])->group(function () {
 
     Route::prefix('driver')->group(function (){
         Route::apiResource('order', \App\Http\Controllers\Api\V1\Driver\OrderController::class);
+        Route::apiResource('accept-order', \App\Http\Controllers\Api\V1\Driver\AcceptController::class);
     });
 });

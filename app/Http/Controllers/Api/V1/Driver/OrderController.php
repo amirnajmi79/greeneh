@@ -20,10 +20,9 @@ class OrderController extends BaseController
         return $this->orderService->index();
     }
 
-    public function update(Order $order){
-
-        return $this->orderService->update($order);
+    public function show(Order $order)
+    {
+        return $this->orderService->show($order);
     }
-
 
 }

@@ -19,4 +19,9 @@ class OrderController extends BaseController
     {
         return $this->orderService->storeOrder($request);
     }
+
+    public function index()
+    {
+        return $this->orderService->index();
+    }
 }

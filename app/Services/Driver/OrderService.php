@@ -13,14 +13,12 @@ class OrderService extends BaseService
         $orders = Order::where('driver_id', '=',  null)
             ->get();
 
-        return $this->successResponse($orders, 'indx');
+        return $this->successResponse($orders, 'index');
     }
 
-    public function update(Order $order){
-        $order->update([
-            'driver_id' => Auth::id()
-        ]);
-
-        return $this->successResponse('updated');
+    public function show(Order $order)
+    {
+        return $this->successResponse($order->with('products')->get(), 'show');
     }
+
 }
