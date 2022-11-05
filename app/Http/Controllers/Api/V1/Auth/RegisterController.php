@@ -24,6 +24,7 @@ class RegisterController extends Controller
             'password' => bcrypt($request->get('password')),
         ]);
 
+        $this->registerService->createShopkeeper($user);
         $tokenResult = $user->createToken('Personal Access Token ');
 
         return $this->registerService->successResponse([

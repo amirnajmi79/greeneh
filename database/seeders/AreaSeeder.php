@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
+use App\Models\Area;
 use Illuminate\Database\Seeder;
 
-class CategorySeeder extends Seeder
+class AreaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,14 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create([
-            'name' => 'category name 1'
+        Area::create([
+            'name' => 'area name 1'
         ]);
 
-        Category::create([
-            'name' => 'category name 2'
+
+        Area::create([
+            'name' => 'area name 2'
         ]);
+
     }
 }
